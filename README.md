@@ -151,8 +151,8 @@ In `Counter.tsx`, define the props for the `Counter` component by creating an in
 
 ```tsx
 interface CounterProps {
-  name: string;
-  initial: number;
+    name: string;
+    initial: number;
 }
 ```
 ---
@@ -171,7 +171,7 @@ This allows you to access the `name` and `initial` props directly within the com
 Inside the `Counter` component, use the `useState` hook to create a state variable named `count` and a function named `setCount` to update it. Initialize `count` with the value of the `initial` prop.
 
 ```tsx
-  const [count, setCount] = useState(initial);
+const [count, setCount] = useState(initial);
 ```
 This sets up a state variable `count` that starts with the value passed in through the `initial` prop.
 
@@ -180,7 +180,7 @@ This sets up a state variable `count` that starts with the value passed in throu
 For the <h2> tag inside the return statement of the `Counter` component, replace the placeholder text with the `name` prop to display the name of the counter.
 
 ```tsx
-      <h2>{name}</h2>
+<h2>{name}</h2>
 ``` 
 This will dynamically show the name of the counter based on the prop passed to the component.
 
@@ -189,7 +189,7 @@ This will dynamically show the name of the counter based on the prop passed to t
 For the <p> tag inside the return statement of the `Counter` component, replace the placeholder text with the `count` state variable to display the current count. Also, add an `id` attribute to the <p> tag with the value `count-${name}`.
 
 ```tsx
-      <p id={`count-${name}`}>{count}</p>
+<p id={`count-${name}`}>{count}</p>
 ```
 This will dynamically show the current count and assign a unique ID based on the counter's name.
 
@@ -198,9 +198,9 @@ This will dynamically show the current count and assign a unique ID based on the
 Add `onClick` event handlers to the buttons inside the return statement of the `Counter` component to update the `count` state using the `setCount` function.
 
 ```tsx
-        <button onClick={() => setCount(count - 1)}>-</button>
-        <button onClick={() => setCount(0)}>Reset</button>
-        <button onClick={() => setCount(count + 1)}>+</button>
+<button onClick={() => setCount(count - 1)}>-</button>
+<button onClick={() => setCount(0)}>Reset</button>
+<button onClick={() => setCount(count + 1)}>+</button>
 ```
 This will allow the buttons to decrement, reset, and increment the count when clicked.
 
@@ -244,7 +244,7 @@ This will render the `Counter` component with the specified `name` and `initial`
 In the `App` component, add a second `Counter` component with a different `name` and `initial` value:
 
 ```tsx
-      <Counter "INSERT THE PROPER PROPERTIES HERE" />
+<Counter "INSERT THE PROPER PROPERTIES HERE" />
 ```
 
 ---
@@ -252,10 +252,10 @@ In the `App` component, add a second `Counter` component with a different `name`
 Inside the `Counter` component, create a new function named `changeCount` that takes a parameter `newCount` of type `number`. This function should update both the `count` state and call the `updateCounter` function to update localStorage.
 
 ```tsx
-  const changeCount = (newCount: number) => {
+const changeCount = (newCount: number) => {
     setCount(newCount);
     updateCounter(name, newCount); // update localStorage directly
-  };
+};
 ```
 updateCounter is a helper function that is given to you in `helpers/counter.ts` that updates the counter value so that it persists even after a page refresh.
 
@@ -265,9 +265,9 @@ Modify the `onClick` event handlers of the buttons inside the return statement o
 component to use the `changeCount` function instead of `setCount`:
 
 ```tsx
-        <button onClick={() => changeCount(count - 1)}>-</button>
-        <button onClick={() => changeCount(0)}>Reset</button>
-        <button onClick={() => changeCount(count + 1)}>+</button>
+<button onClick={() => changeCount(count - 1)}>-</button>
+<button onClick={() => changeCount(0)}>Reset</button>
+<button onClick={() => changeCount(count + 1)}>+</button>
 ```
 This will ensure that both the state and storage are updated when the buttons are clicked so that the changes persist across page refreshes.
 
@@ -277,8 +277,8 @@ In `App.tsx`, create an interface named `CounterData` that defines the structure
 
 ```tsx
 interface CounterData {
-  name: string;
-  initial: number;
+    name: string;
+    initial: number;
 }
 ```
 This interface will be used to type the counter data loaded from localStorage.
@@ -288,7 +288,7 @@ This interface will be used to type the counter data loaded from localStorage.
 In the `App` component, use the `useState` hook to create a state variable named `counters` that holds an array of `CounterData` objects. Initialize it with an empty array.
 
 ```tsx
-  const [counters, setCounters] = useState<CounterData[]>([]);
+const [counters, setCounters] = useState<CounterData[]>([]);
 ```
 This sets up a state variable to manage the list of counters in the application.
 
@@ -297,10 +297,10 @@ This sets up a state variable to manage the list of counters in the application.
 In the `App` component, use the `useEffect` hook to load the counters from localStorage when the component mounts. Inside the `useEffect`, call the `loadCounters` function and update the `counters` state with the loaded data.
 
 ```tsx
-  useEffect(() => {
+useEffect(() => {
     const loadedCounters = loadCounters();
     setCounters(loadedCounters);
-  }, []);
+}, []);
 ```
 useEffect is a React Hook that allows you to perform specific actions in components. By default, it runs after the first render and after every update. The empty array (`[]`) ensures it only runs once when the component mounts.
 
@@ -311,9 +311,9 @@ This will ensure that the counters are loaded from localStorage when the app sta
 In the `App` component, replace the existing `Counter` components with a dynamic rendering of `Counter` components based on the `counters` state. Use the `map` function to iterate over the `counters` array and render a `Counter` for each item.
 
 ```tsx
-      {counters.map((counter) => (
-        <Counter key={counter.name} name={counter.name} initial={counter.initial} />
-      ))}
+{counters.map((counter) => (
+<Counter key={counter.name} name={counter.name} initial={counter.initial} />
+))}
 ```
 list.map() is a JavaScript array method that creates a new array by calling a provided function on every element in the calling array. In this case, it is used to generate a list of `Counter` components based on the data in the `counters` state.
 This will render a `Counter` component for each counter object in the `counters` array.
