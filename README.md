@@ -114,7 +114,7 @@ npm run dev
 This might be overwhelming at first, but don't worry! We'll guide you through replacing the default files so that it's more manageable.
 
 We’ll now copy over your prepared files from
-root/template/part2/ into the new Vite project.
+root/template/ into the new Vite project.
 
 Make sure you’re still inside root/your-name/counter/, then run:
 ```
