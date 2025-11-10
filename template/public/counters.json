@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Pushups",
+        "initial": 10
+    },
+    {
+        "name": "Situps",
+        "initial": 5
+    },
+    {
+        "name": "Squats",
+        "initial": 0
+    }
+]
