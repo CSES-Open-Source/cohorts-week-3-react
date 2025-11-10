@@ -177,7 +177,7 @@ This sets up a state variable `count` that starts with the value passed in throu
 
 ---
 ### TODO 5: Display the name prop
-For the <h2> tag inside the return statement of the `Counter` component, replace the placeholder text with the `name` prop to display the name of the counter.
+For the `<h2>` tag inside the return statement of the `Counter` component, replace the placeholder text with the `name` prop to display the name of the counter.
 
 ```tsx
 <h2>{name}</h2>
@@ -186,7 +186,7 @@ This will dynamically show the name of the counter based on the prop passed to t
 
 ---
 ### TODO 6: Display the count state
-For the <p> tag inside the return statement of the `Counter` component, replace the placeholder text with the `count` state variable to display the current count. Also, add an `id` attribute to the <p> tag with the value `count-${name}`.
+For the `<p>` tag inside the return statement of the `Counter` component, replace the placeholder text with the `count` state variable to display the current count. Also, add an `id` attribute to the `<p>` tag with the value `count-${name}`.
 
 ```tsx
 <p id={`count-${name}`}>{count}</p>
