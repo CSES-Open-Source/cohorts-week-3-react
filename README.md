@@ -324,5 +324,33 @@ This will render a `Counter` component for each counter object in the `counters`
 In the `App` component, uncomment the button that adds a new counter. Implement the `onClick` event handler to call the `addCounter` function with a unique name and an initial value of 0. After adding the new counter, update the `counters` state to include the newly added counter.
 
 ---
+## Uploading Your Work
+To upload your work to your GitHub repository, follow these steps:
+### TODO 1: Add Changes
+In your terminal, navigate to the root directory of your project (the `your-name` folder)
+and run the following command to stage all your changes:
+```
+```bash
+git add .
+```
+
+---
+### TODO 2: Commit Changes
+Next, commit your changes with a descriptive message:
+```bash
+git commit -m "Add new counter functionality"
+```
+
+---
+### TODO 3: Push Changes
+Finally, push your changes to your GitHub repository:
+```bash
+git push origin main
+```
+
+This will upload your committed changes to the `main` branch of your remote repository on GitHub.
+
+---
 # Congrats!
-You have successfully built a React Counter App! 🎉
+You have successfully completed the React Counter App project! 🎉
+
